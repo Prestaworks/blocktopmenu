@@ -609,10 +609,10 @@ class Blocktopmenu extends Module
 			else
 				$link = $this->context->link->getPageLink('index');
 
-			/* Whenever a category is not active we shouldnt display it to customer */
-            if ((bool)$category['active'] === false) {
-                break;
-            }
+			/* Whenever a category is  active we should display it to customer */
+            if ((bool)$category['active'] === true) {
+                
+            
 
 			$html .= '<li'.(($this->page_name == 'category'
 				&& (int)Tools::getValue('id_category') == (int)$category['id_category']) ? ' class="sfHoverForce"' : '').'>';
@@ -645,6 +645,7 @@ class Blocktopmenu extends Module
 			}
 
 			$html .= '</li>';
+		}
 		}
 
 		return $html;
